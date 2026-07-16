@@ -3,6 +3,7 @@ import { getToken, clearToken, setToken } from './lib/apiFetch.js'
 import Login from './pages/Login.jsx'
 import Hub from './pages/Hub.jsx'
 import ApproveSerials from './pages/ApproveSerials.jsx'
+import LineSettings from './pages/LineSettings.jsx'
 
 export default function App() {
   const [auth, setAuth] = useState(null)
@@ -40,6 +41,16 @@ export default function App() {
   if (page === 'approve-serials') {
     return (
       <ApproveSerials
+        auth={auth}
+        onLogout={handleLogout}
+        onBack={() => setPage('hub')}
+      />
+    )
+  }
+
+  if (page === 'line-settings') {
+    return (
+      <LineSettings
         auth={auth}
         onLogout={handleLogout}
         onBack={() => setPage('hub')}
