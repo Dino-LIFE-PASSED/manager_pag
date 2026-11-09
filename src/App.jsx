@@ -4,6 +4,7 @@ import Login from './pages/Login.jsx'
 import Hub from './pages/Hub.jsx'
 import ApproveSerials from './pages/ApproveSerials.jsx'
 import LineSettings from './pages/LineSettings.jsx'
+import StockTrace from './pages/StockTrace.jsx'
 
 export default function App() {
   const [auth, setAuth] = useState(null)
@@ -51,6 +52,16 @@ export default function App() {
   if (page === 'line-settings') {
     return (
       <LineSettings
+        auth={auth}
+        onLogout={handleLogout}
+        onBack={() => setPage('hub')}
+      />
+    )
+  }
+
+  if (page === 'stock-trace') {
+    return (
+      <StockTrace
         auth={auth}
         onLogout={handleLogout}
         onBack={() => setPage('hub')}
