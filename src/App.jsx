@@ -5,6 +5,7 @@ import Hub from './pages/Hub.jsx'
 import ApproveSerials from './pages/ApproveSerials.jsx'
 import LineSettings from './pages/LineSettings.jsx'
 import StockTrace from './pages/StockTrace.jsx'
+import DirectOrder from './pages/DirectOrder.jsx'
 
 export default function App() {
   const [auth, setAuth] = useState(null)
@@ -62,6 +63,16 @@ export default function App() {
   if (page === 'stock-trace') {
     return (
       <StockTrace
+        auth={auth}
+        onLogout={handleLogout}
+        onBack={() => setPage('hub')}
+      />
+    )
+  }
+
+  if (page === 'direct-order') {
+    return (
+      <DirectOrder
         auth={auth}
         onLogout={handleLogout}
         onBack={() => setPage('hub')}
